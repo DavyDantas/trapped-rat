@@ -27,7 +27,7 @@ class cell:
         if self.path == '0':
             pygame.draw.rect(sc, pygame.Color('white'), (x, y, TILE, TILE))
 
-        elif self.path == 'c':
+        elif self.path == 'e':
             pygame.draw.rect(sc, pygame.Color('yellow'), (x, y, TILE, TILE))
             
         else:
@@ -66,19 +66,19 @@ class cell:
         right =self.check_cell(self.x + 1, self.y)
         left =self.check_cell(self.x - 1, self.y)
         
-        if right and not right.visit and (right.path == '0' or right.path == 'c'):
+        if right and not right.visit and (right.path == '0' or right.path == 'e'):
             neighbors.append(right)
             movements.append(right)
 
-        elif left and not left.visit and (left.path == '0' or left.path == 'c'):
+        elif left and not left.visit and (left.path == '0' or left.path == 'e'):
             neighbors.append(left)
             movements.append(left)
 
-        elif bottom and not bottom.visit and (bottom.path == '0' or bottom.path == 'c'):
+        elif bottom and not bottom.visit and (bottom.path == '0' or bottom.path == 'e'):
             neighbors.append(bottom)
             movements.append(bottom)
 
-        elif top and not top.visit and (top.path == '0' or top.path == 'c'):
+        elif top and not top.visit and (top.path == '0' or top.path == 'e'):
             neighbors.append(top)
             movements.append(top)
         
@@ -100,7 +100,7 @@ for row in range(rows):
         if mapCells[row][col] == 'm':
             current_cell = cell(col, row, mapCells[row][col])
         
-        if mapCells[row][col] == 'c':
+        if mapCells[row][col] == 'e':
             final_cell = cell(col, row, mapCells[row][col])
 while True:
     sc.fill(pygame.Color('darkslategray'))
