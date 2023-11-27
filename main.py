@@ -92,16 +92,21 @@ class cell:
 grid_cells = []
 current_cell = cell
 final_cell = cell
+colsMapAux = []
+[colsMapAux.append(mapCells.pop()) for index in range(len(mapCells))]
+
 
 for row in range(rows):
+    listColsMap = colsMapAux.pop()
     for col in range(cols):
-        grid_cells.append(cell(col, row, mapCells[row][col]))
+        print(listColsMap)
+        grid_cells.append(cell(col, row,listColsMap[col]))
+
+        if listColsMap[col] == 'm':
+            current_cell = cell(col, row, listColsMap[col])
         
-        if mapCells[row][col] == 'm':
-            current_cell = cell(col, row, mapCells[row][col])
-        
-        if mapCells[row][col] == 'e':
-            final_cell = cell(col, row, mapCells[row][col])
+        if listColsMap[col] == 'e':
+            final_cell = cell(col, row, listColsMap[col])
 while True:
     sc.fill(pygame.Color('darkslategray'))
 
@@ -119,7 +124,7 @@ while True:
         next_cell.visit=True
 
         if current_cell.x == final_cell.x and current_cell.y == final_cell.y:
-            print(current_cell.x, current_cell.y, final_cell.x, final_cell.y)
+            
             print("GANHOU")
             exit()
 

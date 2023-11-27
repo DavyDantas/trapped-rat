@@ -18,8 +18,8 @@ for line in range(1, rows-1):
 
 mapCells.append(["1"] * coluns)
 
-for map in mapCells:
-    print(map)
+# for map in mapCells:
+#     print(map)
 
 
 # [print(mapCells[row][col]) for row in range(rows) for col in range(coluns)]
